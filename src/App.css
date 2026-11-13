@@ -1,0 +1,9 @@
+body {
+    background-image: linear-gradient(135deg, #06130F 0%, #0B2920 50%, #164536 100%);
+    color:aliceblue;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+ body a {
+    text-decoration: none;
+}

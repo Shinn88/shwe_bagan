@@ -1,0 +1,287 @@
+/* Main section */
+#places {
+    margin: 10px;
+    padding: 30px 0;
+
+    border-radius: 20px;
+    background-color: #04322487;
+
+    font-style: italic;
+    overflow: hidden;
+}
+
+/* Section heading */
+#places > header {
+    margin-bottom: 35px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#places > header h2 {
+    margin: 0 0 12px;
+
+    color: rgba(83, 238, 207, 0.9);
+    font-size: clamp(2rem, 4vw, 3.75rem);
+}
+
+#places > header p {
+    margin: 0;
+
+    color: rgba(202, 139, 56, 0.95);
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+}
+
+/* Carousel viewport */
+.places-viewport {
+    position: relative;
+    width: 100%;
+    height: clamp(420px, 48vw, 560px);
+
+    isolation: isolate;
+}
+
+/* Space containing the cards */
+.places-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1200px;
+}
+
+/* Base slide */
+.place-slide {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    /* Updated card width */
+    width: 80%;
+    height: 100%;
+
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    transform: translateX(-50%) scale(0.8);
+    filter: brightness(0.55);
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.8s ease,
+        filter 0.8s ease;
+
+    will-change: transform, opacity;
+}
+
+/* Make the card fill its slide */
+.place-slide > .place-card {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Previous card: behind the center card */
+.place-slide.previous {
+    opacity: 0.65;
+    z-index: 1;
+
+    transform: translateX(-115%) scale(0.82);
+    filter: brightness(0.65);
+}
+
+/* Next card: behind the center card */
+.place-slide.next {
+    opacity: 0.65;
+    z-index: 1;
+
+    transform: translateX(15%) scale(0.82);
+    filter: brightness(0.65);
+}
+
+/* Center card: always on top */
+.place-slide.active {
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+
+    transform: translateX(-50%) scale(1);
+    filter: brightness(1);
+}
+
+/* Circular navigation buttons */
+.places-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+
+    background: rgba(232, 189, 115, 0.2);
+    color: #fff5dc;
+
+    font-size: 23px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        inset 0 1px 5px rgba(255, 255, 255, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.places-arrow--left {
+    left: 3%;
+}
+
+.places-arrow--right {
+    right: 3%;
+}
+
+.places-arrow:hover {
+    background: rgba(232, 189, 115, 0.65);
+    border-color: #fff0c4;
+
+    box-shadow:
+        inset 0 1px 8px rgba(255, 255, 255, 0.4),
+        0 0 20px rgba(232, 189, 115, 0.45);
+
+    transform: translateY(-50%) scale(1.1);
+}
+
+.places-arrow:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+.places-arrow:focus-visible,
+.places-dot:focus-visible {
+    outline: 2px solid #e8bd73;
+    outline-offset: 4px;
+}
+
+/* Carousel indicators */
+.places-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.places-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+
+    border: 1px solid rgba(232, 189, 115, 0.8);
+    border-radius: 50%;
+
+    background: transparent;
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.places-dot.active {
+    width: 28px;
+    border-color: #e8bd73;
+    border-radius: 10px;
+    background-color: #e8bd73;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .places-viewport {
+        height: 460px;
+    }
+
+    .place-slide {
+        width: 86%;
+    }
+
+    .place-slide.previous {
+        transform: translateX(-105%) scale(0.78);
+    }
+
+    .place-slide.next {
+        transform: translateX(5%) scale(0.78);
+    }
+
+    .places-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 19px;
+    }
+
+    .places-arrow--left {
+        left: 2%;
+    }
+
+    .places-arrow--right {
+        right: 2%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .places-viewport {
+        height: 420px;
+    }
+
+    .place-slide {
+        width: 90%;
+    }
+
+    .place-slide.previous {
+        transform: translateX(-100%) scale(0.76);
+    }
+
+    .place-slide.next {
+        transform: translateX(0%) scale(0.76);
+    }
+
+    .places-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .places-arrow--left {
+        left: 1%;
+    }
+
+    .places-arrow--right {
+        right: 1%;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .place-slide,
+    .places-arrow,
+    .places-dot {
+        transition: none;
+    }
+}

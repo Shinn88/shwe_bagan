@@ -1,0 +1,102 @@
+/* --- PAGE LAYOUT & HERO --- */
+.guides-page {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: rgba(240, 248, 255, 0.8);
+}
+
+.guides-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.guides-back-link {
+    display: inline-block;
+    color: orange;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 30px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.guides-back-link:hover {
+    color: #fff;
+    transform: translateX(-5px);
+}
+
+.guides-eyebrow {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: orange;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.guides-hero h1 {
+    font-size: 48px;
+    color: #fff;
+    margin: 0 0 20px 0;
+}
+
+.guides-intro {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- THE GRID SYSTEM --- */
+.guides-grid {
+    display: grid;
+    /* Automatically creates a 2-column layout that collapses to 1 column on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+/* --- GLASSMORPHISM CARDS --- */
+.guide-card {
+    background-image: linear-gradient(to bottom right, rgba(22, 69, 54, 0.9), rgba(22, 69, 54, 0.4));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(40, 103, 83, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.guide-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 165, 0, 0.15);
+}
+
+.guide-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guide-card h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.guide-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.guide-details strong {
+    color: orange;
+    font-weight: 600;
+    margin-right: 5px;
+}

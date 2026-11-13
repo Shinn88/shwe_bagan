@@ -1,0 +1,46 @@
+
+.about-section {
+    padding: 100px 20px;
+    background-image: linear-gradient(to bottom, rgba(22, 69, 54, 0.05), rgba(22, 69, 54, 0.4));
+    color: rgba(240, 248, 255, 0.85);
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-eyebrow {
+    color: orange;
+    letter-spacing: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.about-header h2 {
+    font-size: 42px;
+    color: #fff;
+    margin: 0 0 10px 0;
+}
+
+.about-tagline {
+    font-size: 22px;
+    font-weight: 400;
+    color: orange;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-mission {
+    margin-top: 50px;
+    font-size: 22px;
+    color: #fff;
+}
